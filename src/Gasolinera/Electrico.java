@@ -1,6 +1,6 @@
 package Gasolinera;
 
-public class Electrico extends Coche {
+public class Electrico extends Coche implements Carga {
 
 //	----- ATRIBUTOS -----
 	private int capacidadBateria;
@@ -41,6 +41,11 @@ public class Electrico extends Coche {
 		System.out.println("Cargada -> " + cargado);
 		System.out.println("==========================\n");	
 		
+	}
+	
+	@Override
+	public void cargar() {
+
 	}
 	
 }
