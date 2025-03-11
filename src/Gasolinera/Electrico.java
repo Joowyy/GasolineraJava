@@ -1,5 +1,17 @@
 package Gasolinera;
 
-public class Electrico {
+public class Electrico extends Coche {
 
+//	----- ATRIBUTOS -----
+	
+//	----- CONSTRUCTORES -----
+	
+//	----- GETTERS SETTERS -----
+	
+//	----- METODOS -----
+	@Override
+	public void mostrarCoche() {
+
+	}
+	
 }
