@@ -34,12 +34,12 @@ public class Electrico extends Coche implements Carga {
 	@Override
 	public void mostrarCoche() {
 
-		System.out.println("\n==========================");		
+		System.out.println("\n---------------------------");		
 		System.out.println("Matricula -> " + matricula);
 		System.out.println("Modelo -> " + modelo);
 		System.out.println("Capacidad bateria -> " + capacidadBateria + " KW");
 		System.out.println("Cargada -> " + cargado);
-		System.out.println("==========================\n");	
+		System.out.println("---------------------------\n");	
 		
 	}
 	

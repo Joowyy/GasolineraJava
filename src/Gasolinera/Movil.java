@@ -40,6 +40,16 @@ public class Movil implements Carga {
 	}
 	
 //	----- METODOS -----
+	public void mostrarMovil () {
+		
+		System.out.println("\n---------------------------");		
+		System.out.println("Codigo -> " + codigo);
+		System.out.println("Tiempo carga -> " + tiempoCarga);
+		System.out.println("Cargado -> " + cargado);
+		System.out.println("---------------------------\n");
+		
+	}
+	
 	@Override
 	public void cargar() {
 
