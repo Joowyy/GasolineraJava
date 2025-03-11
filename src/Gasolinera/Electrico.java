@@ -46,6 +46,21 @@ public class Electrico extends Coche implements Carga {
 	@Override
 	public void cargar() {
 
+		System.out.println("Cargando el vehiculo...");
+		
+//		Simple animacion de carga
+		for (int i = 0; i < 10; i++) {
+            System.out.print("\rCargando" + ".".repeat(i % 4)); 
+            try {
+                Thread.sleep(500); // Pausa de 500ms
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+		
+		cargado = true;
+		System.out.println("\n\nCoche listo para salir!");
+		
 	}
 	
 }

@@ -5,7 +5,7 @@ public class Movil implements Carga {
 //	----- ATRIBUTOS -----
 	private String codigo;
 	private int tiempoCarga;
-	private boolean cargado;
+	private boolean cargado = false;
 	
 //	----- CONSTRUCTORES -----
 	public Movil () {
@@ -43,7 +43,20 @@ public class Movil implements Carga {
 	@Override
 	public void cargar() {
 
+		System.out.println("Cargando el telefono...");
 		
+//		Simple animacion de carga
+		for (int i = 0; i < 10; i++) {
+            System.out.print("\rCargando" + ".".repeat(i % 4)); 
+            try {
+                Thread.sleep(500); // Pausa de 500ms
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+		
+		cargado = true;
+		System.out.println("\n\nMovil cargado al 100%");
 		
 	}
 	

@@ -6,6 +6,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Movil movil = new Movil();
+		
+		movil.cargar();
+		
 //		Almacenamos la opcion en 'opcUsuario'
 		char opcUsuario;
 		opcUsuario = mostrarMenu();
