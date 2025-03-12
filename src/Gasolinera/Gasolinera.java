@@ -190,7 +190,7 @@ public class Gasolinera {
 		
 		do {
 		
-			System.out.println("\nDigame su codigo si es tan amable (4 Digitos) ->");
+			System.out.println("\nDigame su codigo si es tan amable (4 Numeros) ->");
 			codigoUsu = sc.nextLine();
 			
 //			Checkeo de error

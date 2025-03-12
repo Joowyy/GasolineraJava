@@ -46,7 +46,7 @@ public class Electrico extends Coche implements Carga {
 	@Override
 	public void cargar() {
 
-		System.out.println("Cargando el vehiculo...");
+		System.out.println("Reanudando recarga del vehiculo...");
 		
 //		Simple animacion de carga
 		for (int i = 0; i < 10; i++) {

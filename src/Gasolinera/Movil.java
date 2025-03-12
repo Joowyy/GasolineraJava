@@ -53,7 +53,7 @@ public class Movil implements Carga {
 	@Override
 	public void cargar() {
 
-		System.out.println("Cargando el telefono...");
+		System.out.println("Empezando carga...");
 		
 //		Simple animacion de carga
 		for (int i = 0; i < 10; i++) {
@@ -66,7 +66,7 @@ public class Movil implements Carga {
         }
 		
 		cargado = true;
-		System.out.println("\n\nMovil cargado al 100%");
+		System.out.println("\n\nMovil cargado al 100%\n");
 		
 	}
 	
