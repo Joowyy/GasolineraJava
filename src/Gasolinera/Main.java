@@ -26,18 +26,21 @@ public class Main {
 		
 		do {
 
-			System.out.println("BIENVENIDO A REPSOL\n1. Añadir coche electrico\n2. Añadir coche gasolina\n3. Añadir movil\n4. Mostrar gasolinera\n5. Quitar dispositivos cargados\n6. Salir del programa");
+			System.out.println("BIENVENIDO A REPSOL\n1. Añadir coche electrico\n2. Añadir coche gasolina\n3. Añadir movil\n4. Mostrar gasolinera\n5. Quitar dispositivos cargados\n6. Cargar/Llenar coche\n7. Cargar movil\n8. Salir del programa");
 			switch (opc = sc.nextLine().charAt(0)) {
 			case '1':
 
+				g.añadirCocheElectrico();
 				break;
 
 			case '2':
 
+				g.añadirCocheGasolina();
 				break;
 
 			case '3':
 
+				g.añadirMovil();
 				break;
 
 			case '4':
@@ -49,8 +52,16 @@ public class Main {
 
 				quitarDispositivosCargados(g);
 				break;
-
+				
 			case '6':
+
+				break;
+
+			case '7':
+
+				break;
+
+			case '8':
 
 				System.out.println("Saliendo del programa...");
 				break;
@@ -61,7 +72,7 @@ public class Main {
 
 			}
 
-		} while (opc != '6');
+		} while (opc != '8');
 		
 		return opc;
 	}

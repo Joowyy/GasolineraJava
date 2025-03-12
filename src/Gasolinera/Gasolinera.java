@@ -1,6 +1,7 @@
 package Gasolinera;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Gasolinera {
 
@@ -71,16 +72,154 @@ public class Gasolinera {
 //	----- METODOS -----
 	public ArrayList<Coche> añadirCocheElectrico () {
 		
+//		Declaramos variables
+		Scanner sc = new Scanner (System.in);
+		boolean creado = false;
+		String matriculaUsu = null;
+		String modeloUsu = null;
+		int capacidadUsu = 1;
+		
+		do {
+		
+			System.out.println("\nVeamos... digame su matricula ->");
+			matriculaUsu = sc.nextLine();
+			
+//			Checkeo de error
+			if (matriculaUsu.length() != 7) {
+				
+				System.out.println("Introduce una matricula correcta.\n");
+				break;
+				
+			}
+			
+			System.out.println("Dime el modelo del coches a ser posible ->");
+			modeloUsu = sc.nextLine();
+			
+//			Checkeo de error
+			if (modeloUsu.length() <= 0) {
+				
+				System.out.println("Introduce un modelo correcto.\n");
+				break;
+				
+			}
+			
+			System.out.println("¿Total de voltaje de la bateria? ->");
+			capacidadUsu = sc.nextInt();
+			
+//			Checkeo de error con salida
+			if (capacidadUsu <= 0 || capacidadUsu >= 150) {
+				
+				System.out.println("Introduce una capacidad con sentido.\n");
+				break;
+				
+			} else {
+				
+				creado = true;
+				
+			}
+
+		} while (!creado);
+		
+		coches.add(new Electrico(matriculaUsu, modeloUsu, capacidadUsu, false));
+		
 		return coches;
 	}
 	
 	public ArrayList<Coche> añadirCocheGasolina () {
+		
+//		Declaramos variables
+		Scanner sc = new Scanner (System.in);
+		boolean creado = false;
+		String matriculaUsu = null;
+		String modeloUsu = null;
+		int capacidadUsu = 1;
+		
+		do {
+		
+			System.out.println("\nVeamos... digame su matricula ->");
+			matriculaUsu = sc.nextLine();
+			
+//			Checkeo de error
+			if (matriculaUsu.length() != 7) {
+				
+				System.out.println("Introduce una matricula correcta.\n");
+				break;
+				
+			}
+			
+			System.out.println("Dime el modelo del coches a ser posible ->");
+			modeloUsu = sc.nextLine();
+			
+//			Checkeo de error
+			if (modeloUsu.length() <= 0) {
+				
+				System.out.println("Introduce un modelo correcto.\n");
+				break;
+				
+			}
+			
+			System.out.println("¿Total de voltaje de la bateria? ->");
+			capacidadUsu = sc.nextInt();
+			
+//			Checkeo de error con salida
+			if (capacidadUsu <= 0 || capacidadUsu >= 350) {
+				
+				System.out.println("Introduce una capacidad con sentido.\n");
+				break;
+				
+			} else {
+				
+				creado = true;
+				
+			}
+
+		} while (!creado);
+		
+		coches.add(new Gasolina(matriculaUsu, modeloUsu, capacidadUsu, false));
 		
 		return coches;
 	}
 
 	public ArrayList<Movil> añadirMovil () {
 	
+//		Declaramos variables
+		Scanner sc = new Scanner (System.in);
+		boolean creado = false;
+		String codigoUsu = null;
+		int tiempoCargaUsu = 1;
+		
+		do {
+		
+			System.out.println("\nDigame su codigo si es tan amable (4 Digitos) ->");
+			codigoUsu = sc.nextLine();
+			
+//			Checkeo de error
+			if (codigoUsu.length() != 4) {
+				
+				System.out.println("Introduce un codigo válido.\n");
+				break;
+				
+			}
+			
+			System.out.println("Dime el tiempo de carga del teléfono porfavor ->");
+			tiempoCargaUsu = sc.nextInt();
+
+//			Checkeo de error con salida
+			if (tiempoCargaUsu <= 0 || tiempoCargaUsu >= 350) {
+				
+				System.out.println("Introduce un tiempo con sentido.\n");
+				break;
+				
+			} else {
+				
+				creado = true;
+				
+			}
+
+		} while (!creado);
+		
+		moviles.add(new Movil(codigoUsu, tiempoCargaUsu, false));
+		
 		return moviles;
 	}
 	
