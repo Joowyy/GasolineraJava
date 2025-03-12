@@ -26,7 +26,7 @@ public class Main {
 		
 		do {
 
-			System.out.println("BIENVENIDO A REPSOL\n1. Añadir coche electrico\n2. Añadir coche gasolina\n3. Añadir movil\n4. Mostrar gasolinera\n5. Quitar dispositivos cargados\n6. Cargar/Llenar coche\n7. Cargar movil\n8. Salir del programa");
+			System.out.println("BIENVENIDO A REPSOL\n1. Añadir coche electrico\n2. Añadir coche gasolina\n3. Añadir movil\n4. Mostrar gasolinera\n5. Cargar/Llenar coche\n6. Cargar movil\n7. Salir del programa");
 			switch (opc = sc.nextLine().charAt(0)) {
 			case '1':
 
@@ -48,12 +48,7 @@ public class Main {
 				g.mostrarGasolinera();
 				break;
 
-			/* */ case '5':
-
-				quitarDispositivosCargados(g);
-				break;
-				
-			/* */ case '6':
+			case '5':
 
 //				Muestra los coches
 				for (Coche c1 : g.getCoches()) {
@@ -62,7 +57,11 @@ public class Main {
 					
 				}
 				
-				Coche aux = new Electrico();
+//				Declaramos variables de apoyo
+				boolean cocheCargado = false;
+				Electrico auxE = new Electrico();
+				Gasolina auxG = new Gasolina();
+				
 				System.out.println("Dime la matricula del vehiculo ->");
 				String matriculaUsu = sc.nextLine();
 				
@@ -74,45 +73,91 @@ public class Main {
 					
 				}
 				
-				System.out.println("El vehiculo es gasolina o electrico ->");
-				String tipoVehiculo = sc.nextLine();
+//				Con esta pregunta diferenciamos entre ambos
+				System.out.println("Tu vehiculo es electrico o gasolina e/g");
+				char tipoVehiculo = sc.nextLine().charAt(0);
+
+//				Para electricos
+				if (tipoVehiculo == 'e') {
 				
-//				Checkeo de errores
-				if (!tipoVehiculo.equalsIgnoreCase("Electrico") || !tipoVehiculo.equalsIgnoreCase("Gasolina")) {
+					for (Coche c2 : g.getCoches()) {
+
+//						Guardamos el objeto de la condicion casteandolo en un Electrico
+						if (c2.getMatricula().equalsIgnoreCase(matriculaUsu)) {
+
+							auxE = (Electrico) c2;
+							cocheCargado = false;
+
+//							Si ese objeto pertenece a cierta clase, haz lo siguiente
+							if (auxE.getClass().getSimpleName().equals("Electrico")) {
+
+								auxE.cargar();
+								cocheCargado = true;
+
+							}
+
+						}
+
+					}
+				
+				if (cocheCargado == true) {
 					
-					System.out.println("Introduce un tipo válido porfavor.\n");
+//					Factura del coche
+					int totalFactura = 0;
+					System.out.println("\n---------- FACTURA ---------");
+					System.out.println("Precio kWh -> " + g.getPreciokWh() + " kWh");
+					System.out.println("Capacidad bateria -> " + auxE.getCapacidadBateria() + " Kw");
+					System.out.println("------------------------");
+					System.out.println("Total de factura -> " + g.getPreciokWh()*auxE.getCapacidadBateria() + " €");
+					System.out.println("------------------------\n");
 					
 				}
 				
-				if (tipoVehiculo.equalsIgnoreCase("Electrico")) {
-					
-					for (Coche c2 : g.getCoches()) {
+//				Para gasolinas
+				} else if (tipoVehiculo == 'g') {
+				
+					for (Coche c3 : g.getCoches()) {
 
-						if (c2.getMatricula().equalsIgnoreCase(matriculaUsu)) {
-							
-							aux = c2;
-							
-						}
-						
-						if (aux.getClass().getSimpleName().equals("Electrico")) {
-							
-							
-							
+//						Guardamos el objeto de la condicion casteandolo en un Gasolina
+						if (c3.getMatricula().equalsIgnoreCase(matriculaUsu)) {
+
+							auxG = (Gasolina) c3;
+							cocheCargado = false;
+
+//							Si ese objeto pertenece a cierta clase, haz lo siguiente
+							if (auxG.getClass().getSimpleName().equals("Gasolina")) {
+
+								auxG.llenarDeposito();
+								cocheCargado = true;
+
+							}
+
 						}
 						
 					}
-					
-				} else if (tipoVehiculo.equalsIgnoreCase("Gasolina")) {
-					
-					
-					
+
 				} else {
+					
+					System.out.println("Introduce un carácter valido.");
 					
 				}
 				
+				if (cocheCargado == true) {
+					
+//					Factura del coche
+					int totalFactura = 0;
+					System.out.println("\n---------- FACTURA ---------");
+					System.out.println("Precio kWh -> " + g.getPrecioGasolina() + " €");
+					System.out.println("Capacidad bateria -> " + auxG.getDeposito() + " L");
+					System.out.println("------------------------");
+					System.out.println("Total de factura -> " + g.getPrecioGasolina()*auxG.getDeposito() + " €");
+					System.out.println("------------------------\n");
+					
+				}
+
 				break;
 
-			case '7':
+			case '6':
 				
 //				Muestra los moviles
 				for (Movil m1 : g.getMoviles()) {
@@ -125,7 +170,9 @@ public class Main {
 					
 				}
 				
-				Movil aux = new Movil(); 
+//				Declaramos variables de apoyo
+				Movil aux1 = new Movil(); 
+				
 				System.out.println("Dime el codigo del movil que quieres cargar ->");		
 				String codeUsu = sc.nextLine();
 				
@@ -140,26 +187,38 @@ public class Main {
 //				Asignamos el objeto que sea de codigo identico.
 				for (Movil m2 : g.getMoviles()) {
 					
+//					Compara el codigo del 'for each' con el del Usuario
 					if (m2.getCodigo().equalsIgnoreCase(codeUsu)) {
 						
 						m2.cargar();
-						aux = m2;
+						aux1 = m2;
 						
 					}
 					
 				}
 				
+				g.getMoviles().remove(aux1);
+				
 //				Checkeo de errores
-				if (!aux.getCodigo().equalsIgnoreCase(codeUsu)) {
+				if (!aux1.getCodigo().equalsIgnoreCase(codeUsu)) {
 					
 					System.out.println("Introduce un codigo valido");
 					break;
 					
 				}
 				
+//				Factura del movil
+				int totalFactura = 0;
+				System.out.println("\n---------- FACTURA ---------");
+				System.out.println("Tiempo p/minuto -> " + g.getPrecioMinuto() + " €");
+				System.out.println("Tiempo de carga -> " + aux1.getTiempoCarga() + " min");
+				System.out.println("------------------------");
+				System.out.println("Total de factura -> " + g.getPrecioMinuto()*aux1.getTiempoCarga() + " €");
+				System.out.println("------------------------\n");
+				
 				break;
 
-			case '8':
+			case '7':
 
 				System.out.println("Saliendo del programa...");
 				break;
@@ -170,22 +229,9 @@ public class Main {
 
 			}
 
-		} while (opc != '8');
+		} while (opc != '7');
 		
 		return opc;
-	}
-	
-	public static boolean quitarDispositivosCargados (Gasolinera g) {
-		
-		boolean dispositivosQuitados = false;
-		
-		System.out.println("\nEliminando...");
-		
-		g.getMoviles().removeIf(Movil -> Movil.isCargado() == true);
-		
-		System.out.println("Dispositivos eliminados correctamente!\n");
-		
-		return dispositivosQuitados;
 	}
 
 }

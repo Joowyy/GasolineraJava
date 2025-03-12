@@ -7,8 +7,8 @@ public class Gasolinera {
 
 //	----- ATRIBUTOS -----
 	private String nombre;
-	private double preciokWh = 13.57;
-	private double precioGasolina = 14.89;
+	private double preciokWh = 0.45;
+	private double precioGasolina = 1.25;
 	private double precioMinuto = 0.45;
 	private static ArrayList<Coche> coches = new ArrayList<Coche>();
 	private static ArrayList<Movil> moviles = new ArrayList<Movil>();
@@ -273,19 +273,19 @@ public class Gasolinera {
 	public static Gasolinera crearGasolinera () {
 		
 //		Coches gasolina
-		coches.add(new Gasolina("4872KEJ", "Seat", 45, true));
-		coches.add(new Gasolina("3395JOE", "Toyota", 61, true));
+		coches.add(new Gasolina("4872KEJ", "Seat", 45, false));
+		coches.add(new Gasolina("3395JOE", "Toyota", 61, false));
 		
 //		Coches electricos
-		coches.add(new Electrico("4872KEJ", "Tesla", 59, true));
-		coches.add(new Electrico("3395JOE", "Peugeot", 55, true));
+		coches.add(new Electrico("9385IJO", "Tesla", 59, false));
+		coches.add(new Electrico("1193HOL", "Peugeot", 55, false));
 		
 //		Moviles
-		moviles.add(new Movil("5834", 33, true));
-		moviles.add(new Movil("5573", 51, true));
+		moviles.add(new Movil("5834", 33, false));
+		moviles.add(new Movil("5573", 51, false));
 		
 //		Creamos la gasolinera con parametros
-		Gasolinera gasolineraJowy = new Gasolinera("Jowy's Repost", 13.57, 14.89, 0.45, coches, moviles);
+		Gasolinera gasolineraJowy = new Gasolinera("Jowy's Repost", 0.45, 1.25, 0.45, coches, moviles);
 		
 		return gasolineraJowy;
 	}

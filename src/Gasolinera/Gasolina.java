@@ -32,6 +32,29 @@ public class Gasolina extends Coche {
 	}
 	
 //	----- METODOS -----
+	public void llenarDeposito () {
+		
+		System.out.println("\nIntroduciendo manguera...");
+		
+		System.out.println("!!!! TIP !!!!");
+		System.out.println("¿Has sacudido bien la manguera?");
+		System.out.println("¿Sabes que dos gotas pueden ser 100m?\n");
+		
+//		Simple animacion de carga
+		for (int i = 0; i < 10; i++) {
+            System.out.print("\rCargando" + ".".repeat(i % 4)); 
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+		
+		lleno = true;
+		System.out.println("\n\nVehiculo modificado con 900cv!\n");
+		
+	}
+	
 	@Override
 	public void mostrarCoche() {
 
