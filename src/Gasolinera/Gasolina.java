@@ -35,12 +35,12 @@ public class Gasolina extends Coche {
 	@Override
 	public void mostrarCoche() {
 
-		System.out.println("\n---------------------------");		
+		System.out.println("\n-------------------------------");		
 		System.out.println("Matricula -> " + matricula);
 		System.out.println("Modelo -> " + modelo);
 		System.out.println("Deposito -> " + deposito + " L");
 		System.out.println("Lleno -> " + lleno);
-		System.out.println("---------------------------\n");	
+		System.out.println("-------------------------------\n");	
 		
 	}
 }

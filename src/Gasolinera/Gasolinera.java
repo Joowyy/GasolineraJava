@@ -71,12 +71,12 @@ public class Gasolinera {
 //	----- METODOS -----
 	public void mostrarGasolinera () {
 		
-		System.out.println("\n==========================");		
-		System.out.println("Nombre -> " + nombre);
-		System.out.println("Precio kWh -> " + preciokWh);
-		System.out.println("Precio gasolina -> " + precioGasolina);
-		System.out.println("Precio p/minuto -> " + precioMinuto);
-		System.out.println("\n > VEHICULOS GASOLINA");
+		System.out.println("\n===============================");		
+		System.out.println(" \t" + nombre);
+		System.out.println("   Precio kWh -> " + preciokWh);
+		System.out.println("   Precio gasolina -> " + precioGasolina);
+		System.out.println("   Precio p/minuto -> " + precioMinuto);
+		System.out.println("\n\t> V. GASOLINA <");
 		for (Coche g1 : coches) {
 			
 			if (g1.getClass().getSimpleName().equals("Gasolina")) {
@@ -86,7 +86,7 @@ public class Gasolinera {
 			}
 			
 		}
-		System.out.println("\n > VEHICULOS ELECTRICOS");
+		System.out.println("\n\t> V. ELECTRICOS <");
 		for (Coche g2 : coches) {
 			
 			if (g2.getClass().getSimpleName().equals("Electrico")) {
@@ -96,17 +96,29 @@ public class Gasolinera {
 			}
 			
 		}
-		System.out.println("\n > MOVILES");
+		System.out.println("\n\t> MOVILES <");
 		for (Movil m1 : moviles) {
 
 			m1.mostrarMovil();
 			
 		}
-		System.out.println("==========================\n");	
+		System.out.println("===============================\n");	
 		
 	}
 	
 	public static Gasolinera crearGasolinera () {
+		
+//		Coches gasolina
+		coches.add(new Gasolina("4872KEJ", "Seat", 45, true));
+		coches.add(new Gasolina("3395JOE", "Toyota", 61, true));
+		
+//		Coches electricos
+		coches.add(new Electrico("4872KEJ", "Tesla", 59, true));
+		coches.add(new Electrico("3395JOE", "Peugeot", 55, true));
+		
+//		Moviles
+		moviles.add(new Movil("5834", 33, true));
+		moviles.add(new Movil("5573", 51, true));
 		
 		Gasolinera gasolineraJowy = new Gasolinera("Jowy's Repost", 13.57, 14.89, 0.45, coches, moviles);
 		

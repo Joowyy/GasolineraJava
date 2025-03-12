@@ -42,11 +42,11 @@ public class Movil implements Carga {
 //	----- METODOS -----
 	public void mostrarMovil () {
 		
-		System.out.println("\n---------------------------");		
+		System.out.println("\n-------------------------------");		
 		System.out.println("Codigo -> " + codigo);
-		System.out.println("Tiempo carga -> " + tiempoCarga);
+		System.out.println("Tiempo carga -> " + tiempoCarga + " min");
 		System.out.println("Cargado -> " + cargado);
-		System.out.println("---------------------------\n");
+		System.out.println("-------------------------------\n");
 		
 	}
 	
@@ -59,7 +59,7 @@ public class Movil implements Carga {
 		for (int i = 0; i < 10; i++) {
             System.out.print("\rCargando" + ".".repeat(i % 4)); 
             try {
-                Thread.sleep(500); // Pausa de 500ms
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
