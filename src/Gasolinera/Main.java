@@ -10,7 +10,7 @@ public class Main {
 //		AÑADIR METODO DE ELIMINAR TODOS
 //		LOS OBJETOS DE LA ARRAY EN TRUE
 		
-//		Gasolinera principal
+//		Gasolinera principal (Usamos la clase con un metodo 'static')
 		Gasolinera g = Gasolinera.crearGasolinera();
 
 //		Almacenamos la opcion en 'opcUsuario'
@@ -47,6 +47,7 @@ public class Main {
 
 			case '5':
 
+				quitarDispositivosCargados(g);
 				break;
 
 			case '6':
@@ -63,6 +64,19 @@ public class Main {
 		} while (opc != '6');
 		
 		return opc;
+	}
+	
+	public static boolean quitarDispositivosCargados (Gasolinera g) {
+		
+		boolean dispositivosQuitados = false;
+		
+		System.out.println("\nEliminando...");
+		
+		g.getMoviles().removeIf(Movil -> Movil.isCargado() == true);
+		
+		System.out.println("Dispositivos eliminados correctamente!\n");
+		
+		return dispositivosQuitados;
 	}
 
 }

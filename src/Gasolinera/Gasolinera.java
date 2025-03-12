@@ -21,8 +21,8 @@ public class Gasolinera {
 		this.preciokWh = preciokWh;
 		this.precioGasolina = precioGasolina;
 		this.precioMinuto = precioMinuto;
-		this.coches = coches;
-		this.moviles = moviles;
+		Gasolinera.coches = coches;
+		Gasolinera.moviles = moviles;
 	}
 	
 //	----- GETTERS SETTERS -----
@@ -58,25 +58,43 @@ public class Gasolinera {
 		return coches;
 	}
 	public void setCoches(ArrayList<Coche> coches) {
-		this.coches = coches;
+		Gasolinera.coches = coches;
 	}
 	
 	public ArrayList<Movil> getMoviles() {
 		return moviles;
 	}
 	public void setMoviles(ArrayList<Movil> moviles) {
-		this.moviles = moviles;
+		Gasolinera.moviles = moviles;
 	}
 	
 //	----- METODOS -----
+	public ArrayList<Coche> añadirCocheElectrico () {
+		
+		return coches;
+	}
+	
+	public ArrayList<Coche> añadirCocheGasolina () {
+		
+		return coches;
+	}
+
+	public ArrayList<Movil> añadirMovil () {
+	
+		return moviles;
+	}
+	
 	public void mostrarGasolinera () {
 		
-		System.out.println("\n===============================");		
+		System.out.println("\n===============================");	
+		
 		System.out.println(" \t" + nombre);
 		System.out.println("   Precio kWh -> " + preciokWh);
 		System.out.println("   Precio gasolina -> " + precioGasolina);
 		System.out.println("   Precio p/minuto -> " + precioMinuto);
 		System.out.println("\n\t> V. GASOLINA <");
+		
+//		Usamos 'for eachs' para recorrer el array filtrando el nombre
 		for (Coche g1 : coches) {
 			
 			if (g1.getClass().getSimpleName().equals("Gasolina")) {
@@ -86,7 +104,9 @@ public class Gasolinera {
 			}
 			
 		}
+		
 		System.out.println("\n\t> V. ELECTRICOS <");
+		
 		for (Coche g2 : coches) {
 			
 			if (g2.getClass().getSimpleName().equals("Electrico")) {
@@ -96,16 +116,21 @@ public class Gasolinera {
 			}
 			
 		}
+		
 		System.out.println("\n\t> MOVILES <");
+		
 		for (Movil m1 : moviles) {
 
 			m1.mostrarMovil();
 			
 		}
+		
 		System.out.println("===============================\n");	
 		
 	}
 	
+//	Metodo 'static' al igual que los arrays, para poder ser llamado,
+//	Ya que lo llamaremos desde el main.
 	public static Gasolinera crearGasolinera () {
 		
 //		Coches gasolina
@@ -120,6 +145,7 @@ public class Gasolinera {
 		moviles.add(new Movil("5834", 33, true));
 		moviles.add(new Movil("5573", 51, true));
 		
+//		Creamos la gasolinera con parametros
 		Gasolinera gasolineraJowy = new Gasolinera("Jowy's Repost", 13.57, 14.89, 0.45, coches, moviles);
 		
 		return gasolineraJowy;
