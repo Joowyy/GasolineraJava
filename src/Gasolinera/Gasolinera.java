@@ -158,7 +158,7 @@ public class Gasolinera {
 				
 			}
 			
-			System.out.println("¿Total de voltaje de la bateria? ->");
+			System.out.println("¿Total del deposito del vehiculo? ->");
 			capacidadUsu = sc.nextInt();
 			
 //			Checkeo de error con salida
